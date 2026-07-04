@@ -1,20 +1,63 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# StoryLens
 
-# Run and deploy your AI Studio app
+**AI-powered methodology for designing data storytelling dashboards.**
 
-This contains everything you need to run your app locally.
+StoryLens es una aplicación web que guía a analistas, consultores y equipos de negocio en el diseño de dashboards mediante una experiencia conversacional estructurada.
 
-View your app in AI Studio: https://ai.studio/apps/b118f1f3-df90-4ac8-9abd-3f4719e4e515
+En lugar de comenzar directamente por la construcción del tablero, StoryLens ayuda a definir el problema, la audiencia, los objetivos y la narrativa para generar un Blueprint listo para implementar en Power BI, Excel, Tableau, Qlik Sense o cualquier otra plataforma de BI.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## ¿Qué problema resuelve?
 
+Muchos dashboards fracasan porque comienzan por la herramienta antes que por la estrategia.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+StoryLens propone un proceso guiado que permite definir:
+
+- Objetivo del dashboard
+- Audiencia
+- KPIs
+- Historia que deben contar los datos
+- Plataforma de implementación
+- Arquitectura visual
+
+---
+
+## Metodología
+
+El usuario completa una serie de pasos conversacionales donde define:
+
+1. Objetivo del tablero
+2. Audiencia
+3. Plataforma de desarrollo
+4. Estructura de los datos
+
+Con esa información StoryLens genera un **Blueprint** que incluye:
+
+- KPIs recomendados
+- Layout del dashboard
+- Visualizaciones sugeridas
+- Argumentación metodológica
+- Recomendaciones de implementación
+
+---
+
+## Tecnologías
+
+- Google AI Studio
+- Gemini
+- React
+- TypeScript
+- Vite
+
+---
+
+## Estado del proyecto
+
+Versión MVP desarrollada como Trabajo Final Integrador de la Diplomatura en Inteligencia Artificial — Facultad de Ciencias Económicas (UBA).
+
+---
+
+## Autor
+
+**Martín Strusiat**
