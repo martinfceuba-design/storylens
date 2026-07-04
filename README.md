@@ -54,10 +54,10 @@ Con esa información StoryLens genera un **Blueprint** que incluye:
 
 ## Estado del proyecto
 
-Versión MVP desarrollada como Trabajo Final Integrador de la Diplomatura en Inteligencia Artificial — Facultad de Ciencias Económicas (UBA).
+Versión MVP desarrollada como Trabajo Final Integrador de la DIPLOMATURA EN INTELIGENCIA ARTIFICIAL APLICADA A ENTORNOS DIGITALES DE GESTION — Facultad de Ciencias Económicas (UBA).
 
 ---
 
 ## Autor
 
-**Martín Strusiat**
+**Martín Rodriguez Strusiat**
