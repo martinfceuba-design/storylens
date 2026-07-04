@@ -1,0 +1,6 @@
+{
+  "name": "StoryLens",
+  "description": "Un mentor de Data Storytelling que guía a analistas en el diseño metodológico de dashboards generando un Blueprint visual, argumentado y exportable.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
