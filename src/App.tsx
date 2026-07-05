@@ -10,15 +10,34 @@ import LoadingScreen from "./components/LoadingScreen";
 import BlueprintView from "./components/BlueprintView";
 import { parseRawColumns } from "./utils/parser";
 import { StoryLensSession, StoryLensBlueprint, ColumnInfo } from "./types";
-import { BookOpen, Sparkles, AlertCircle } from "lucide-react";
+import { BookOpen, Sparkles, AlertCircle, Sun, Moon } from "lucide-react";
 
 export default function App() {
   const [currentStep, setCurrentStep] = useState<number>(0); // 0 = Landing
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      const stored = window.localStorage.getItem("storylens-theme");
+      if (stored === "dark" || stored === "light") return stored;
+    }
+    return "light";
+  });
 
   // Automatically scroll to top whenever the user moves between steps
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentStep]);
+
+  // Sync theme class with local state
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    if (typeof window !== "undefined" && window.localStorage) {
+      window.localStorage.setItem("storylens-theme", theme);
+    }
+  }, [theme]);
   
   // Guided flow state
   const [session, setSession] = useState<StoryLensSession>({
@@ -240,16 +259,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col justify-between font-sans transition-colors duration-300">
       
       {/* SaaS Application Navbar */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <button 
             onClick={handleRestart}
             className="flex items-center gap-2.5 text-left bg-transparent border-0 cursor-pointer"
           >
-            <div className="w-9 h-9 bg-brand-600 rounded-xl flex items-center justify-center text-white font-bold shadow-md shadow-brand-500/10">
+            <div className="w-9 h-9 bg-brand-600 rounded-xl flex items-center justify-center text-white font-bold shadow-md shadow-brand-500/10 animate-[pulse_3s_infinite]">
               SL
             </div>
             <div>
@@ -269,15 +288,32 @@ export default function App() {
             </div>
           )}
 
-          {currentStep > 0 && (
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle Button */}
             <button
-              id="navbar-btn-restart"
-              onClick={handleRestart}
-              className="text-xs font-semibold text-slate-500 hover:text-brand-600 border border-slate-200 hover:border-brand-200 px-3 py-1.5 rounded-lg transition-colors bg-white cursor-pointer"
+              id="theme-toggle"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="p-2 text-slate-500 hover:text-brand-600 hover:bg-slate-100 rounded-xl transition-all cursor-pointer border border-transparent hover:border-slate-200 flex items-center justify-center bg-transparent"
+              aria-label="Toggle Theme"
+              title="Cambiar Tema"
             >
-              Reiniciar
+              {theme === "light" ? (
+                <Moon className="w-5 h-5 text-slate-600" />
+              ) : (
+                <Sun className="w-5 h-5 text-amber-400" />
+              )}
             </button>
-          )}
+
+            {currentStep > 0 && (
+              <button
+                id="navbar-btn-restart"
+                onClick={handleRestart}
+                className="text-xs font-semibold text-slate-500 hover:text-brand-600 border border-slate-200 hover:border-brand-200 px-3 py-1.5 rounded-lg transition-colors bg-white cursor-pointer"
+              >
+                Reiniciar
+              </button>
+            )}
+          </div>
         </div>
       </header>
 

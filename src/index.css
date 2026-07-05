@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
+@variant dark (.dark &);
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
@@ -22,6 +24,7 @@ body {
   font-family: var(--font-sans);
   background-color: #f8fafc;
   color: #0f172a;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,4 +45,179 @@ h1, h2, h3, h4, h5, h6 {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Premium Selector-based Dark Mode styling                                   */
+/* -------------------------------------------------------------------------- */
+
+.dark body {
+  background-color: #030712; /* slate-950 */
+  color: #f3f4f6; /* slate-100 */
+}
+
+/* Header & Footer */
+.dark header {
+  background-color: #090d16 !important;
+  border-color: #1e293b !important;
+}
+.dark footer {
+  background-color: #090d16 !important;
+  border-color: #1e293b !important;
+  color: #94a3b8 !important;
+}
+
+/* Main Layout container background override */
+.dark .min-h-screen {
+  background-color: #030712 !important;
+}
+
+/* Main Cards / Step Containers */
+.dark #step-objective-container,
+.dark #step-audience-container,
+.dark #step-platform-container,
+.dark #step-data-container,
+.dark #step-validation-container,
+.dark #progress-indicator-bar,
+.dark [id^="methodology-card-"] {
+  background-color: #0f172a !important; /* slate-900 */
+  border-color: #1e293b !important; /* slate-800 */
+  color: #f3f4f6 !important;
+}
+
+/* Inner borders and line items */
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-300 {
+  border-color: #1e293b !important;
+}
+
+/* Texts */
+.dark .text-slate-900,
+.dark .text-brand-950 {
+  color: #ffffff !important;
+}
+.dark .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Buttons and Inputs */
+.dark .bg-slate-50,
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+.dark select,
+.dark input[type="text"],
+.dark textarea {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+/* Active option buttons (e.g. Sales, PowerBI selected state) */
+.dark .bg-brand-50 {
+  background-color: #1e3a8a !important; /* deep blue */
+  border-color: #3b82f6 !important;
+}
+.dark .text-brand-600 {
+  color: #60a5fa !important;
+}
+
+/* Landing specific cards */
+.dark .bg-white {
+  background-color: #0f172a !important;
+}
+
+/* Methodology Card Icons inside landing */
+.dark .bg-blue-50,
+.dark .bg-indigo-50,
+.dark .bg-amber-50,
+.dark .bg-emerald-50,
+.dark .bg-violet-50,
+.dark .bg-rose-50 {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Let's keep specific icons bright in dark mode */
+.dark .text-blue-600 { color: #60a5fa !important; }
+.dark .text-indigo-600 { color: #818cf8 !important; }
+.dark .text-amber-600 { color: #fbbf24 !important; }
+.dark .text-emerald-600 { color: #34d399 !important; }
+.dark .text-violet-600 { color: #a78bfa !important; }
+.dark .text-rose-600 { color: #f43f5e !important; }
+
+/* Workbench drawing blueprint grid */
+.dark .bg-slate-100 {
+  background-color: #0f172a !important;
+}
+.dark .bg-\[linear-gradient\(to_right\,\#cbd5e1_1\.2px\,transparent_1\.2px\)\,linear-gradient\(to_bottom\,\#cbd5e1_1\.2px\,transparent_1\.2px\)\] {
+  background-image: linear-gradient(to right, #1e293b 1.2px, transparent 1.2px), linear-gradient(to bottom, #1e293b 1.2px, transparent 1.2px) !important;
+}
+
+/* Ensure the Blueprint interactive detail side card and blocks also look beautiful */
+.dark .lg\:col-span-4 {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+.dark .lg\:col-span-2 {
+  border-color: #1e293b !important;
+}
+
+.dark #navbar-btn-restart {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+.dark #navbar-btn-restart:hover {
+  color: #ffffff !important;
+  border-color: #4b5563 !important;
+}
+
+.dark #pdf-export-modal .bg-white {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+.dark #pdf-export-modal .bg-slate-50 {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+.dark #pdf-export-modal .text-slate-900 {
+  color: #ffffff !important;
+}
+.dark #pdf-export-modal .border-slate-300 {
+  border-color: #334155 !important;
+}
+.dark #pdf-export-modal .bg-slate-100 {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+.dark #pdf-export-modal .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+.dark .bg-red-50 {
+  background-color: #7f1d1d !important;
+  border-color: #b91c1c !important;
+  color: #fee2e2 !important;
+}
+
+.dark .bg-emerald-50 {
+  background-color: #064e3b !important;
+  border-color: #047857 !important;
+  color: #ecfdf5 !important;
 }
