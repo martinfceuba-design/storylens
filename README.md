@@ -2,6 +2,8 @@
 
 **AI-powered methodology for designing data storytelling dashboards.**
 
+🌐 Demo online: https://storylens-nu.vercel.app/
+
 StoryLens es una aplicación web que guía a analistas, consultores y equipos de negocio en el diseño de dashboards mediante una experiencia conversacional estructurada.
 
 En lugar de comenzar directamente por la construcción del tablero, StoryLens ayuda a definir el problema, la audiencia, los objetivos y la narrativa para generar un Blueprint listo para implementar en Power BI, Excel, Tableau, Qlik Sense o cualquier otra plataforma de BI.
